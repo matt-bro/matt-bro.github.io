@@ -1,0 +1,13 @@
+---
+layout: base.njk
+title: Home
+permalink: /
+numberOfLatestPostsToShow: 15
+---
+
+{% set postsCount = collections.posts | length %}
+{% set latestPostsCount = postsCount | min(numberOfLatestPostsToShow) %}
+{% set postslist = collections.posts | head(-1 * latestPostsCount) %}
+
+<h2 class="list-heading">Recent posts</h2>
+{% include "postslist.njk" %}

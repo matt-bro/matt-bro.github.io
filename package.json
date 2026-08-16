@@ -2,23 +2,19 @@
   "name": "matt-bro.github.io",
   "version": "1.0.0",
   "description": "",
-  "main": "index.js",
+  "license": "MIT",
+  "author": "Matt Bro",
+  "type": "module",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "start": "eleventy --serve",
+    "build": "eleventy"
   },
-  "repository": {
-    "type": "git",
-    "url": "git+https://github.com/matt-bro/matt-bro.github.io.git"
-  },
-  "keywords": [],
-  "author": "",
-  "license": "ISC",
-  "type": "commonjs",
-  "bugs": {
-    "url": "https://github.com/matt-bro/matt-bro.github.io/issues"
-  },
-  "homepage": "https://github.com/matt-bro/matt-bro.github.io#readme",
   "dependencies": {
-    "@11ty/eleventy": "^3.1.6"
+    "@11ty/eleventy": "^3.1.6",
+    "@11ty/eleventy-navigation": "^1.0.5",
+    "@11ty/eleventy-plugin-rss": "^3.0.0",
+    "@11ty/eleventy-plugin-syntaxhighlight": "^5.0.2",
+    "luxon": "^3.7.2",
+    "prismjs": "^1.30.0"
   }
 }

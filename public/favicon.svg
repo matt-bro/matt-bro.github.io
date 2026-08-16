@@ -1,0 +1,6 @@
+<!-- The pipe from the header wordmark, in the accent on the site background.
+     Carrying its own tile keeps it legible against either tab strip. -->
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 32 32">
+	<rect width="32" height="32" rx="7" fill="#0c0c0d"/>
+	<rect x="14" y="7" width="4" height="18" rx="2" fill="#e0685a"/>
+</svg>

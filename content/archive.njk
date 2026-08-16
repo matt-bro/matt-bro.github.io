@@ -1,0 +1,16 @@
+---
+layout: base.njk
+title: Archive
+permalink: /archive/
+eleventyNavigation:
+  key: Archive
+  order: 2
+---
+
+{%- for group in collections.posts | groupByYear %}
+<section class="archive-year">
+	<h2 class="list-heading">{{ group.year }}</h2>
+	{%- set postslist = group.posts %}
+	{% include "postslist.njk" %}
+</section>
+{%- endfor %}
