@@ -1,0 +1,11 @@
+---
+layout: base.njk
+---
+
+<article>
+  <a class="back" href="/">&larr; back home</a>
+  <h1>{{ title }}</h1>
+  <p class="post-meta"><time datetime="{{ page.date | htmlDateString }}">{{ page.date | htmlDateString }}</time></p>
+  {{ content | safe }}
+  <a class="back" href="/">&larr; back home</a>
+</article>

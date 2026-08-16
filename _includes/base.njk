@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="{{ metadata.language }}">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="color-scheme" content="dark light">
+
+    <title>{{ metadata.title if page.url == "/" else title + " · " + metadata.title }}</title>
+    <meta name="description" content="{{ description or metadata.description }}">
+    <link rel="canonical" href="{{ metadata.url }}{{ page.url }}">
+    <link rel="alternate" type="application/atom+xml" title="{{ metadata.title }}" href="/feed.xml">
+    <link rel="icon" href="/favicon.svg" type="image/svg+xml">
+
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Hanken+Grotesk:wght@400;500;600;700&family=JetBrains+Mono&display=swap">
+    <link rel="stylesheet" href="/css/prism-dark.css">
+    <link rel="stylesheet" href="/css/index.css">
+    <script>
+        try { var t = localStorage.getItem("theme"); if (t) document.documentElement.dataset.theme = t; } catch (e) {}
+    </script>
+</head>
+<body>
+    <header>
+        <a class="brand" href="/"><span class="pre">Matt Bro</span><span class="pipe">|</span><span class="name">Considerations</span></a>
+        <nav>
+            {%- set navPages = collections.all | eleventyNavigation %}
+            <ul>
+            {%- for entry in navPages %}
+                <li><a href="{{ entry.url }}"{% if entry.url == page.url %} aria-current="page"{% endif %}>{{ entry.title }}</a></li>
+            {%- endfor %}
+            </ul>
+        </nav>
+        <button type="button" id="theme-toggle" class="theme-toggle" aria-label="Toggle light and dark theme" hidden>
+            <svg class="icon-moon" width="17" height="17" viewBox="0 0 256 256" fill="currentColor" aria-hidden="true"><path d="M233.54,142.23a8,8,0,0,0-8-2,88.08,88.08,0,0,1-109.8-109.8,8,8,0,0,0-10-10,104.84,104.84,0,0,0-52.91,37A104,104,0,0,0,136,224a103.09,103.09,0,0,0,62.52-20.88,104.84,104.84,0,0,0,37-52.91A8,8,0,0,0,233.54,142.23Z"/></svg>
+            <svg class="icon-sun" width="17" height="17" viewBox="0 0 256 256" fill="currentColor" aria-hidden="true"><path d="M120,40V16a8,8,0,0,1,16,0V40a8,8,0,0,1-16,0Zm72,88a64,64,0,1,1-64-64A64.07,64.07,0,0,1,192,128Zm-16,0a48,48,0,1,0-48,48A48.05,48.05,0,0,0,176,128ZM58.34,69.66A8,8,0,0,0,69.66,58.34l-16-16A8,8,0,0,0,42.34,53.66Zm0,116.68-16,16a8,8,0,0,0,11.32,11.32l16-16a8,8,0,0,0-11.32-11.32ZM192,72a8,8,0,0,0,5.66-2.34l16-16a8,8,0,0,0-11.32-11.32l-16,16A8,8,0,0,0,192,72Zm5.66,114.34a8,8,0,0,0-11.32,11.32l16,16a8,8,0,0,0,11.32-11.32ZM48,128a8,8,0,0,0-8-8H16a8,8,0,0,0,0,16H40A8,8,0,0,0,48,128Zm80,80a8,8,0,0,0-8,8v24a8,8,0,0,0,16,0V216A8,8,0,0,0,128,208Zm112-88H216a8,8,0,0,0,0,16h24a8,8,0,0,0,0-16Z"/></svg>
+        </button>
+    </header>
+
+    <main>
+        {{ content | safe }}
+    </main>
+
+    <script>
+        var btn = document.getElementById("theme-toggle");
+        btn.hidden = false;
+        btn.addEventListener("click", function () {
+            var next = document.documentElement.dataset.theme === "light" ? "dark" : "light";
+            document.documentElement.dataset.theme = next;
+            try { localStorage.setItem("theme", next); } catch (e) {}
+        });
+    </script>
+</body>
+</html>
