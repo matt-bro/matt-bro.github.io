@@ -208,7 +208,7 @@ article blockquote {
 }
 article blockquote p { margin: 0; }
 article hr { margin: var(--sp-9) 0; border: 0; border-top: 1px solid var(--rule); }
-article img { display: block; max-width: 100%; border-radius: 6px; }
+article img { display: block; max-width: 100%; height: auto; border-radius: 6px; }
 article img[src$=".svg"] { width: 100%; height: auto; }
 article figure { margin: 0 0 var(--sp-6); }
 article figcaption { margin-top: var(--sp-2); font-size: var(--fs-label); color: var(--muted); }
